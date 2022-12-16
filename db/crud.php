@@ -35,6 +35,34 @@ class crud{
 
     }
 
+    public function editAttendee($id,$fname, $lname, $dob, $email, $contact, $specialty)
+    {
+        try{
+
+            
+        $sql = "UPDATE `attendee` SET `fristname`=:fname,`lastname`=:lname,
+        `dateofbirth`= :dob,`emailadress`=:email,`contactnumber`=:contact,
+        `specialty_id`=:specialty WHERE attendee_id = :id";
+                $stmt = $this ->db->prepare($sql);
+                $stmt->bindparam(':id',$id);
+                $stmt->bindparam(':fname',$fname);
+                $stmt->bindparam(':lname',$lname);
+                $stmt->bindparam(':dob',$dob);
+                $stmt->bindparam(':email',$email);
+                $stmt->bindparam(':contact',$contact);
+                $stmt->bindparam(':specialty',$specialty);
+                $stmt->execute();
+                return true;
+
+        }
+        catch(PDOException $e)
+        {
+            echo $e->getMessage();
+            return false;
+        }
+    
+    }
+
     public function getAttendess()
     {
         $sql ="SELECT * FROM `attendee` as a inner join specialties s on a.specialty_id = s.specialty_id";
@@ -59,6 +87,22 @@ class crud{
 
     }
 
+    public function deleteAttendee($id)
+    {
+        try{ 
+            $sql ="delete from attendee where attendee_id = :id";
+            $stmt = $this->db->prepare($sql);
+            $stmt ->bindparam(':id',$id);
+            $stmt->execute();
+            return true;
+
+        }
+        catch(PDOException $e){
+            echo $e->getMessage();
+            return false;
+        }
+     
+    }
 
 
 }
