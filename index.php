@@ -10,17 +10,17 @@ $results = $crud->getSpecialties();
     <form method="POST" action="success.php" >
     <div class="mb-3">
     <label for="fristname" class="form-label">Frist Name</label>
-    <input type="text" name="fristname" class="form-control" id="fristname">
+    <input required type="text" name="fristname" class="form-control" id="fristname">
    
   </div>
   <div class="mb-3">
     <label for="lastname" class="form-label">Last Name</label>
-    <input type="text" name="lastname" class="form-control" id="lastname">
+    <input required type="text" name="lastname" class="form-control" id="lastname">
    
   </div>
   <div class="mb-3">
     <label for="dob" class="form-label">Date Of Birth</label>
-    <input type="text" name="dob" class="form-control" id="dob">
+    <input required type="text" name="dob" class="form-control" id="dob">
    
   </div>
   <div class="mb-3">
@@ -40,7 +40,7 @@ $results = $crud->getSpecialties();
   </div>
   <div class="mb-3">
     <label for="email" class="form-label">Email address</label>
-    <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp">
+    <input required type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp">
     <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
   </div>
   <div class="mb-3">

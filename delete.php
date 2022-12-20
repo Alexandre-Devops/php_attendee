@@ -4,7 +4,7 @@ require_once 'db/conn.php';
 
 if(!$_GET['id'])
 {
-    echo 'error';
+    include 'includes/errormessage.php';   
 }
 else{
     $id = $_GET['id'];
@@ -14,7 +14,7 @@ else{
         header("Location: viewrecords.php");
     }
     else{
-        echo'error';
+        include 'includes/errormessage.php';   
     }
 }
 ?>

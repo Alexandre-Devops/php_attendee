@@ -65,10 +65,19 @@ class crud{
 
     public function getAttendess()
     {
+        try{
         $sql ="SELECT * FROM `attendee` as a inner join specialties s on a.specialty_id = s.specialty_id";
         $result =$this->db->query($sql);
         return $result;
     }
+    catch(PDOException $e)
+    {
+        echo $e->getMessage();
+        return false;
+    }
+
+    }
+   
     public function getAttendeeDetails($id)
     {
         $sql ="SELECT * FROM `attendee` as a inner join specialties s on a.specialty_id = s.specialty_id where attendee_id = :id";

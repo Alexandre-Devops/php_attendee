@@ -6,7 +6,7 @@ $results = $crud->getSpecialties();
 
 if(!isset($_GET['id']))
 {
-    echo 'error';
+   include 'includes/errormessage.php';   // echo 'error';
 }
 else
 {
@@ -56,8 +56,8 @@ else
     <input type="text" name="phone" class="form-control" value="<?php echo $attendee['contactnumber'] ?>" id="phone" aria-describedby="phoneHelp">
     <div id="phoneHelp" class="form-text">We'll never share your phone with anyone else.</div>
   </div>
-  
+  <a href="edit.php?id=<?php echo $result['attendee_id'] ?>" class="btn btn-default">Back To List</a>
   <button type="submit" name="submit" class="btn btn-success btn-block">Save Changes</button>
 </form>
 <?php } ?>
- <?php require_once 'includes/footer.php' ?>
+ <?php require_once 'includes/footer.php' ?>S
